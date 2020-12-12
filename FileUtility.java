@@ -18,7 +18,7 @@ public class FileUtility {
             String currentLine;
             List<String> lines = Files.readAllLines(Paths.get(posisi.toString()),
             Charset.defaultCharset());
-
+          
                 if(lines.size()>0){
                     currentLine = lines.get(lines.size()-1);
                     lastPosition = currentLine;
@@ -28,7 +28,6 @@ public class FileUtility {
                 } 
 
         } catch (FileNotFoundException e) {
-
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,7 +49,15 @@ public class FileUtility {
     }
 
     public static void reset(){
-        write("0,0:N");
+        try {
+            BufferedWriter fw = new BufferedWriter(new FileWriter(posisi));
+            fw.append("0,0:N");
+            fw.newLine();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 }
 
 }

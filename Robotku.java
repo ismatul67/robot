@@ -2,11 +2,13 @@ public class Robotku {
     private int x;
     private int y;
     private Direction dir;
+
     public Robotku(int x, int y, Direction dir) {
         this.x = x;
         this.y = y;
         this.dir = dir;
     }
+
     @Override
     public String toString() {
         return x +","+ y+":"+ dir;
@@ -22,8 +24,8 @@ public class Robotku {
             }
         }
     }
-    public void move(String command) {
 
+    public void move(String command) {
         Movement gerakan = Movement.valueOf(command);
         switch (gerakan) {
             case F:
